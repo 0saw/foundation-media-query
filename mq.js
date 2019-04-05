@@ -55,7 +55,7 @@ export default (function () {
 		}
 	};
 
-	let breakpointEvent = new CustomEvent('breakpoint-changed', {detail: mq});
+	let breakpointEvent = new CustomEvent('breakpoint-change', {detail: mq});
 
 	let extractedStyles = extractStyles();
 	let mediaQueryPairs = parseStyle(extractedStyles);
