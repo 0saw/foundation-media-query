@@ -19,6 +19,8 @@ function breakpointEventListener() {
 
 You are not obligated to import `mq` to your scope. Instead you can use `event.detail` like so:
 ```javascript
+import "@0saw/foundation-media-query";
+
 document.addEventListener('breakpoint-change', breakpointEventListener);
 
 function breakpointEventListener(event) {

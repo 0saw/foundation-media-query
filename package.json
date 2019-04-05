@@ -1,6 +1,6 @@
 {
   "name": "@0saw/foundation-media-query",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Lightweight addon to suit your crazy frontend needs",
   "keywords": ["foundation", "media-query", "matchmedia"],
 
