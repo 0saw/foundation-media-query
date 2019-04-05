@@ -1,10 +1,13 @@
 {
-  "name": "foundation-media-query",
+  "name": "@0saw/foundation-media-query",
   "version": "1.0.0",
   "description": "Lightweight addon to suit your crazy frontend needs",
   "keywords": ["foundation", "media-query", "matchmedia"],
+
   "author": "0saw <1water4you@gmail.com>",
   "license": "MIT",
+  "repository": "https://github.com/0saw/foundation-media-query",
+  "bugs": "https://github.com/0saw/foundation-media-query/issues",
 
   "main": "dist/mq.js",
 
