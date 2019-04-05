@@ -146,7 +146,7 @@ var _default = function () {
     return mq;
   }
 
-  mq = {
+  window.mq = mq = {
     is: questionCurrentBreakpoint,
 
     get current() {
@@ -170,11 +170,17 @@ var _default = function () {
     }
 
   };
-  var breakpointEvent = new CustomEvent('breakpoint-changed', {
+  var breakpointEvent = new CustomEvent('breakpoint-change', {
     detail: mq
   });
   var extractedStyles = extractStyles();
   var mediaQueryPairs = parseStyle(extractedStyles);
+
+  if (mediaQueryPairs.length === 1) {
+    console.warn('Please use foundation-sites of version atleast 6.0');
+    return;
+  }
+
   var mediaQueries = mediaQueryPairs.map(function (pair, index) {
     var name = pair.name,
         value = pair.value;
@@ -189,8 +195,7 @@ var _default = function () {
   var currentBreakpointList = [];
   var currentBreakpoint = getCurrentBreakpoint(true);
   /**
-   * Получает текущий breakpoint
-   * @param [full = false] Возвращать полный формат
+   * @param [full = false] Should use full format
    * @return {Object|String}
    */
 
@@ -216,6 +221,7 @@ var _default = function () {
   }
   /**
    * Examples
+   *
    * .is('medium[ only]')
    * .is('landscape')
    * .is('retina')

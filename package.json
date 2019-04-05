@@ -9,8 +9,8 @@
   "main": "dist/mq.js",
 
   "scripts": {
-    "build-package": "parcel build --public-url /scripts/ --no-minify --no-source-maps --out-file mq.js mq.js && parcel build --no-source-maps --out-file mq.min.js mq.js",
+    "build-package": "parcel build --no-minify --no-source-maps --out-file mq.js mq.js && parcel build --no-source-maps --out-file mq.min.js mq.js",
     "watch": "parcel watch --public-url /scripts/ --out-dir ./site/scripts/ --out-file mq.js mq.js",
-    "build": "parcel build --no-source-maps --out-dir ./site/scripts/ --out-file mq.js mq.js"
+    "build": "parcel build --public-url /scripts/ --no-source-maps --out-dir ./site/scripts/ --out-file mq.js mq.js"
   }
 }
