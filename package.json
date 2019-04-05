@@ -1,0 +1,16 @@
+{
+  "name": "foundation-media-query",
+  "version": "1.0.0",
+  "description": "Lightweight addon to suit your crazy frontend needs",
+  "keywords": ["foundation", "media-query", "matchmedia"],
+  "author": "0saw <1water4you@gmail.com>",
+  "license": "MIT",
+
+  "main": "dist/mq.js",
+
+  "scripts": {
+    "build-package": "parcel build --public-url /scripts/ --no-minify --no-source-maps --out-file mq.js mq.js && parcel build --no-source-maps --out-file mq.min.js mq.js",
+    "watch": "parcel watch --public-url /scripts/ --out-dir ./site/scripts/ --out-file mq.js mq.js",
+    "build": "parcel build --no-source-maps --out-dir ./site/scripts/ --out-file mq.js mq.js"
+  }
+}
