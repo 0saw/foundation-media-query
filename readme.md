@@ -41,14 +41,14 @@ function breakpointEventListener(event) {
 
 
 ## API
-mq object contains a few usefull things.
+mq object contains a few useful things.
 
 ### Getters
 * mq.`current` - Gives you the name of current breakpoint
 * mq.`currentFull` - Gives you all of the breakpoint info that we have. (I.e `mq.currentFull.matchMedia` will give you matchMedia object. In case you want to do something naughty)
 * mq.`landscape` - Analog of CSS's `(orientation: landscape)`
-* mq.`portrait` - Pretty straigh forward
-* mq.`retina` - DPI is atleast 2x
+* mq.`portrait` - Pretty straight forward
+* mq.`retina` - DPI is at least 2x
 
 ### Methods
 * mq.`is` - Allows you to quickly check current breakpoint
@@ -65,4 +65,4 @@ mq.is('portrait');
 
 
 ## FAQ
-* We obliviosly need foundation to operate. But if you are using mixin version of foundation-sites - make sure to [`@include foundation-global-styles;`](https://github.com/zurb/foundation-sites/blob/92b2f187cd8f9c6b243bf06756beac960dae22df/scss/_global.scss#L136)
+* We obliviously need foundation to operate. But if you are using mixin version of foundation-sites - make sure to [`@include foundation-global-styles;`](https://github.com/zurb/foundation-sites/blob/92b2f187cd8f9c6b243bf06756beac960dae22df/scss/_global.scss#L136)
