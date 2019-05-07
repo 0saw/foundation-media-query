@@ -1,3 +1,5 @@
+// import '@babel/polyfill'
+
 // CustomEvent polyfill. Source: https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent/CustomEvent
 (function () {
 	if (typeof window.CustomEvent === 'function') {
@@ -81,7 +83,6 @@ export default (function () {
 
 	let ilen = mediaQueries.length;
 	let currentBreakpointList = [];
-	let currentBreakpoint = getCurrentBreakpoint(true);
 
 	/**
 	 * @param [full = false] Should use full format
@@ -101,12 +102,8 @@ export default (function () {
 		return full ? mediaQueries[ilen - 1] : mediaQueries[ilen - 1].name;
 	}
 
-	function mediaQueryChangeListener(e) {
-		let newBreakpoint = getCurrentBreakpoint(true);
-
+	function mediaQueryChangeListener() {
 		document.dispatchEvent(breakpointEvent);
-
-		currentBreakpoint = newBreakpoint;
 	}
 
 	/**

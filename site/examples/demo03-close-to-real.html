@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<title>Demo 03. Close to reality demo</title>
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.5.3/css/foundation.css">
+
+	<style>
+		body {
+			min-height: 100vh;
+			border: 1px solid #ddd;
+		}
+
+		body::before {
+			content: attr(data-breakpoint);
+			position: fixed;
+			right: 0;
+			bottom: 0;
+			background: rgba(255, 255, 255, 0.7);
+			color: #333;
+			padding: 8px 20px;
+			border: 1px solid rgba(0, 0, 0, 0.2);
+		}
+
+		table {
+			height: 100%;
+			margin-bottom: 0;
+		}
+
+		thead,
+		tbody {
+			border: 0;
+		}
+
+		td {
+			vertical-align: top;
+		}
+
+		ul {
+			margin-bottom: 0;
+		}
+	</style>
+</head>
+<body>
+
+<table>
+	<thead>
+		<tr>
+			<th>Column 1</th>
+			<th>Column 2</th>
+		</tr>
+	</thead>
+	<tr>
+		<td>
+			<ul>
+				<li id="lorem">Lorem</li>
+				<li id="ipsum">ipsum</li>
+				<li id="dolor">dolor</li>
+				<li id="sit">sit</li>
+				<li id="amet">amet</li>
+			</ul>
+		</td>
+		<td>
+			<ul></ul>
+		</td>
+	</tr>
+</table>
+
+<script src="/scripts/mq.js"></script>
+<script>
+	document.addEventListener('breakpoint-change', breakpointEventListener);
+
+	var lorem = document.getElementById('lorem'),
+		ipsum = document.getElementById('ipsum'),
+		dolor = document.getElementById('dolor'),
+		sit = document.getElementById('sit'),
+		amet = document.getElementById('amet');
+
+	var uls = document.querySelectorAll('ul');
+
+	var rules = [
+		{
+			breakpoint: "small",
+			element: lorem,
+		},
+		{
+			breakpoint: "medium",
+			element: ipsum,
+		},
+		{
+			breakpoint: "large",
+			element: dolor,
+		},
+		{
+			breakpoint: "xlarge",
+			element: sit,
+		},
+		{
+			breakpoint: "xxlarge",
+			element: amet,
+		},
+	]
+
+	function breakpointEventListener() {
+		document.body.dataset.breakpoint = mq.current;
+
+		rules.forEach(rule => {
+			if (mq.is(rule.breakpoint)) {
+				uls[0].appendChild(rule.element);
+			} else {
+				uls[1].appendChild(rule.element);
+			}
+		});
+	}
+
+	function parentIs(element, parent) {
+		return element.parentNode === parent;
+	}
+
+	breakpointEventListener();
+</script>
+</body>
+</html>

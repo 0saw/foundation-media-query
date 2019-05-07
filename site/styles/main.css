@@ -1,0 +1,20 @@
+body {
+	padding: 40px 160px 40px 40px;
+}
+
+.b-iframe {
+	position: relative;
+	padding: 10px;
+	margin-bottom: 20px;
+	border: 1px solid #ccc;
+	height: 240px;
+	overflow-x: auto;
+	overflow-y: hidden;
+	resize: horizontal;
+}
+
+.b-iframe iframe {
+	height: 100%;
+	width: 100%;
+	border: 0;
+}

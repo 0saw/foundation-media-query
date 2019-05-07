@@ -116,6 +116,7 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
+// import '@babel/polyfill'
 // CustomEvent polyfill. Source: https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent/CustomEvent
 (function () {
   if (typeof window.CustomEvent === 'function') {
@@ -193,7 +194,6 @@ var _default = function () {
   });
   var ilen = mediaQueries.length;
   var currentBreakpointList = [];
-  var currentBreakpoint = getCurrentBreakpoint(true);
   /**
    * @param [full = false] Should use full format
    * @return {Object|String}
@@ -214,10 +214,8 @@ var _default = function () {
     return full ? mediaQueries[ilen - 1] : mediaQueries[ilen - 1].name;
   }
 
-  function mediaQueryChangeListener(e) {
-    var newBreakpoint = getCurrentBreakpoint(true);
+  function mediaQueryChangeListener() {
     document.dispatchEvent(breakpointEvent);
-    currentBreakpoint = newBreakpoint;
   }
   /**
    * Examples

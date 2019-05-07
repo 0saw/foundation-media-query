@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<title>Demo 02. Advanced</title>
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.5.3/css/foundation.css">
+
+	<style>
+		body {
+			min-height: 100vh;
+		}
+
+		body {
+			background: #f4d9f9;
+			border: 1px solid #ddd;
+			box-shadow:
+				inset 40em 0 0 0 #9d81ba,
+				inset 64em 0 0 0 #ab96df,
+				inset 75em 0 0 0 #d9a3e3,
+				inset 90em 0 0 0 #e8b8f4;
+		}
+
+		body::before {
+			content: attr(data-breakpoint);
+			position: fixed;
+			right: 0;
+			bottom: 0;
+			background: rgba(255, 255, 255, 0.7);
+			color: #333;
+			padding: 8px 20px;
+			border: 1px solid rgba(0, 0, 0, 0.2);
+		}
+
+		svg {
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			margin: auto 0 auto 64px;
+		}
+
+		path {
+			transition: 0.3s opacity ease-out;
+		}
+
+		.c-direction-to-small path:nth-child(1) {
+			opacity: 0.5;
+		}
+
+		.c-direction-from-small path:nth-child(2) {
+			opacity: 0.5;
+		}
+	</style>
+</head>
+<body>
+
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="72" height="72">
+	<path fill="#fff" d="M179.5 307.2H0v51.2h179.5v76.8l102.1-102.4-102.1-102.4z"/>
+	<path fill="#fff" d="M332.5 153.6V76.8L230.4 179.2l102.1 102.4v-76.8H512v-51.2z"/>
+</svg>
+
+<script src="/scripts/mq.js"></script>
+<script>
+	document.addEventListener('breakpoint-change', breakpointEventListener);
+
+	var currentBreakpoint = mq.currentFull;
+
+	function breakpointEventListener() {
+		document.body.dataset.breakpoint = mq.current;
+
+		var breakpoint = mq.currentFull;
+		var delta = currentBreakpoint.index - breakpoint.index;
+
+		switch (true) {
+			case delta < 0:
+				document.body.classList.add('c-direction-from-small');
+				document.body.classList.remove('c-direction-to-small');
+				break;
+			case delta > 0:
+				document.body.classList.remove('c-direction-from-small');
+				document.body.classList.add('c-direction-to-small');
+				break;
+			default:
+				break;
+		}
+
+		currentBreakpoint = mq.currentFull;
+	}
+	breakpointEventListener();
+</script>
+</body>
+</html>

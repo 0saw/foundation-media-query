@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<title>Demo 01. Simple</title>
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.5.3/css/foundation.css">
+
+	<style>
+		html,
+		body {
+			height: 100%;
+		}
+
+		body {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			border: 1px solid #ddd;
+			background: #4188ff;
+			color: #fff;
+			font-size: 24vmin;
+			transition: 0.3s background-color ease-out;
+		}
+
+		.c-breakpoint-medium {
+			background-color: #649eff;
+		}
+
+		.c-breakpoint-large {
+			background-color: #78aaff;
+		}
+
+		.c-breakpoint-xlarge {
+			background-color: #92bbff;
+		}
+
+		.c-breakpoint-xxlarge {
+			background-color: #accbff;
+		}
+	</style>
+</head>
+<body>
+
+<span class="js-breakpoint">small</span>
+
+<script src="/scripts/mq.js"></script>
+<script>
+	document.addEventListener('breakpoint-change', breakpointEventListener);
+
+	function breakpointEventListener() {
+		document.body.firstElementChild.innerHTML = mq.current;
+		document.body.className = 'c-breakpoint-' + mq.current;
+	}
+	breakpointEventListener();
+</script>
+</body>
+</html>
