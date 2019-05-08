@@ -1,20 +1,21 @@
 {
   "name": "@0saw/foundation-media-query",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Lightweight addon to suit your crazy frontend needs",
+  "homepage": "https://0saw.github.io/foundation-media-query/",
   "keywords": [
     "foundation",
     "media-query",
     "matchmedia"
   ],
-  "author": "0saw <1water4you@gmail.com>",
+  "author": "Simusev Leonid <1water4you@gmail.com>",
   "license": "MIT",
   "repository": "https://github.com/0saw/foundation-media-query",
   "bugs": "https://github.com/0saw/foundation-media-query/issues",
   "main": "dist/mq.js",
   "scripts": {
     "build-package": "parcel build --no-minify --no-source-maps --out-file mq.js mq.js && parcel build --no-source-maps --out-file mq.min.js mq.js",
-    "watch": "parcel watch --public-url /scripts/ --out-dir ./site/scripts/ --out-file mq.js mq.js",
-    "build": "parcel build --experimental-scope-hoisting --public-url /scripts/ --no-source-maps --out-dir ./site/scripts/ --out-file mq.js mq.js"
+    "watch": "parcel watch --public-url /scripts/ --out-dir ./docs/scripts/ --out-file mq.js mq.js",
+    "build": "parcel build --experimental-scope-hoisting --public-url /scripts/ --no-source-maps --out-dir ./docs/scripts/ --out-file mq.js mq.js"
   }
 }
